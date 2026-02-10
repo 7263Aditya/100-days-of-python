@@ -17,6 +17,4 @@ def square():
     move()
     turn_right()
     move()
-    
-    
 square()
