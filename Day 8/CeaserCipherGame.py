@@ -23,7 +23,6 @@ def caesar(original_text, shift_amount, encode_or_decode):
             output_text += alphabet[shifted_position]
     print(f"Here is the {encode_or_decode}d result: {output_text}")
 
-
 # TODO-3: Can you figure out a way to restart the cipher program?
 should_continue = True
 while should_continue:
