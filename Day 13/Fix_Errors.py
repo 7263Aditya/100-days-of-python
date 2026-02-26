@@ -1,0 +1,6 @@
+try:
+    age = int(input("How old are you?"))
+except ValueError:
+    print("You have typed in and invalid number. Try again with numerical input such as '21'")
+if age > 18:
+    print(f"You can drive at age {age}.")
