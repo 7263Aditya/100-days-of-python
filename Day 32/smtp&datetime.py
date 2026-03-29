@@ -11,7 +11,6 @@
 #     msg="Subject:Hello\n\nThis is the body of the email")
 # connection.close()
 
-
 # import datetime as dt
 #
 # now = dt.datetime.now()
@@ -22,7 +21,6 @@
 #
 # dob = dt.datetime(year=1995,month = 11,day = 16,hour = 9,minute = 48,second = 59)
 # print(dob)
-
 
 import smtplib
 import datetime as dt
