@@ -30,7 +30,7 @@ day_before_yesterday_data = data_list[1]
 day_before_closing_price = day_before_yesterday_data["4. close"]
 print(day_before_closing_price)
 
-# Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
+# Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20
 difference = float(yesterday_closing_price) - float(day_before_closing_price)
 print(abs(difference))
 
@@ -53,19 +53,16 @@ if abs(diff_percent) > 4:
     news_response = requests.get(NEWS_ENDPOINT, params=news_params)
     articles = news_response.json()["articles"]
 
-# Use Python slice operator to create a list that contains the first 3 articles. Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
+# Use Python slice operator to create a list that contains the first 3 articles.
     three_articles = articles[:3]
     print(three_articles)
-
-## STEP 3: Use twilio.com/docs/sms/quickstart/python
-#to send a separate message with each article's title and description to your phone number.
 
 # Create a new list of the first 3 article's headline and description using list comprehension.
     formatted_articles = [f"{STOCK_NAME}: {up_down}{abs(diff_percent)}% \nHeadline:{articles['title']}. \nBrief: {articles['description']}" for articles in three_articles]
 
 # Send each article as a separate message via Twilio.
     client = Client(account_sid, auth_token)
-    # 1. Define the function to be reusable
+    
     def send_alert(message_body):
         message = client.messages.create(
             from_='whatsapp:+14155238886',  # Use your specific Sandbox number
@@ -74,6 +71,5 @@ if abs(diff_percent) > 4:
         )
         print(f"Message Sent! SID: {message.sid}")
 
-    # 2. Use a loop to call the function for each article
     for article in formatted_articles:
         send_alert(article)
